@@ -1,0 +1,38 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3533
+
+Usage: place plugin/gf.vim in your ~/.vim/plugin directory
+Repo: https://github.com/mjbrownie/GetFilePlus
+
+GetFilePlus is a simple enhancement on the gf mappings it does the following
+
+1. standard 'find file/path.ext' first as normal gf would.
+
+2. does a 'find ./file/path.ext'. check
+
+    This is for when a file path starts with a / (often js and css references).
+
+    eg: /js/some_file.js that actually  resides in media/js/some_file.js
+
+    Note for this to be useful you need to set up your :set path to refer to
+    the directories you want. (Eg. I have :set path+=media/ in my .vimrc)
+
+3. does a python path check eg.
+
+    from django.contrib.admin.views import foobar
+
+    would open /yourvirtualenv/lib/site-packages/django/contrib/admin/views.py
+
+    Note for this to work you need the python path to set eg in your .vimrc
+    python import sys;sys.path = sys.path + ['yourvirtualenv/lib/site-packages/']
+
+Also as a bonus There is a command included to make it easier to open python
+files from the command line.
+
+    :Ppath django.contrib.admin.views<cr>
+
+    would open /yourvirtualenv/lib/site-packages/django/contrib/admin/views.py
+
+Note as is the script will send any import errors to screen. If this is the
+case then it's just sys.path not configured properly
+
+This script needs vim python support
